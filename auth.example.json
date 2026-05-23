@@ -1,0 +1,8 @@
+{
+  "token": "YOUR_TOKEN",
+  "cookie": "ds_session_id=YOUR_SESSION; smidV2=YOUR_SMID",
+  "hif_dliq": "",
+  "hif_leim": "",
+  "wasmUrl": "https://fe-static.deepseek.com/chat/static/sha3_wasm_bg.7b9ca65ddd.wasm",
+  "baseUrl": "https://chat.deepseek.com"
+}
