@@ -1,0 +1,49 @@
+{
+  "服务名称": "DeepSeek Web API Proxy",
+  "API基础URL": "http://localhost:8000/v1",
+  "API密钥": "暂未启用鉴权，任意字符串即可",
+  "支持模型": ["deepseek-chat"],
+  "OpenAI SDK配置示例": {
+    "python": {
+      "code": [
+        "from openai import OpenAI",
+        "client = OpenAI(",
+        "    base_url=\"http://localhost:8000/v1\",",
+        "    api_key=\"not-needed\"",
+        ")",
+        "",
+        "response = client.chat.completions.create(",
+        "    model=\"deepseek-chat\",",
+        "    messages=[{\"role\": \"user\", \"content\": \"你好\"}],",
+        "    stream=True",
+        ")"
+      ]
+    },
+    "curl": [
+      "curl -X POST http://localhost:8000/v1/chat/completions \\",
+      "  -H \"Content-Type: application/json\" \\",
+      "  -d '{",
+      "    \"model\": \"deepseek-chat\",",
+      "    \"messages\": [{\"role\": \"user\", \"content\": \"你好\"}],",
+      "    \"stream\": true",
+      "  }'"
+    ],
+    "nodejs": {
+      "code": [
+        "const response = await fetch('http://localhost:8000/v1/chat/completions', {",
+        "  method: 'POST',",
+        "  headers: { 'Content-Type': 'application/json' },",
+        "  body: JSON.stringify({",
+        "    model: 'deepseek-chat',",
+        "    messages: [{ role: 'user', content: '你好' }],",
+        "    stream: true",
+        "  }),",
+        "});"
+      ]
+    }
+  },
+  "部署方式": "Docker Compose",
+  "启动命令": "docker-compose up -d",
+  "前置配置": "编辑 auth.json 填入 DeepSeek 登录凭证",
+  "获取凭证方法": "1. 登录 chat.deepseek.com → F12 → Network → 发送消息 → 从请求头中复制 Authorization Bearer Token 和 Cookie"
+}
